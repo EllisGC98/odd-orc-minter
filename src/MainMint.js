@@ -42,8 +42,7 @@ const MainMint = ({ accounts, setAccounts }) => {
     const [totalMinted, setTotalMinted] = useState(0);
     const [maxSupply, setMaxSupply] = useState(0);
     const isConnected = Boolean(accounts[0]);
-
-
+    
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
 
@@ -54,6 +53,8 @@ const MainMint = ({ accounts, setAccounts }) => {
     );
 
     console.log(smartContract)
+
+
 
     async function handleMint() {
         if (window.ethereum) {
@@ -87,11 +88,14 @@ const MainMint = ({ accounts, setAccounts }) => {
         return totalMinted;
     }
 
+
     const getMaxSupply = async () => {
         console.log(smartContract)
         const maxSupply = await smartContract.maxSupply()
         return maxSupply
     }
+
+
 
     useEffect(() => {
         const init = async () => {
