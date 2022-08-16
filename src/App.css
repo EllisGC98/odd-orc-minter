@@ -34,11 +34,11 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: url(/src/assets/background.png);
+  background-image: url(/src/assets/Background.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: 40% 40%;
+  background-position: 40% 100%;
 }
 
 .image-wrapper {
@@ -48,5 +48,43 @@ body {
 .image-wrapper img {
   width: 80%;
 
+}
+
+.supplyCounter {
+  font-size: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .background{
+    background-size: cover;
+    background-position: 50% 100%;
+    max-width: 100%;
+  }
+  .image-wrapper {
+    margin: 0px 10px;
+  }
+  
+  .image-wrapper img {
+    width: 80%;
+  
+  }
+
+  .supplyCounter{
+    font-size: 20px;
+
+  }
+ 
+}
+
+@media screen and (max-width: 350px) {
+  .background{
+    background-size: cover;
+    background-position: 50% 100%;
+    max-width: 100%;
+  }
+  .supplyCounter{
+    font-size: 20px;
+
+  }
 }
 

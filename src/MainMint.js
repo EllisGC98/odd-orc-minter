@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import React from "react";
-import { ethers, BigNumber, Contract } from 'ethers';
+import { ethers, BigNumber } from 'ethers';
 import Marquee from 'react-fast-marquee';
 import Mud1 from './/assets/M1.png';
 import Mud2 from './/assets/M2.png';
@@ -43,17 +43,22 @@ const MainMint = ({ accounts, setAccounts }) => {
     const [maxSupply, setMaxSupply] = useState(0);
     const isConnected = Boolean(accounts[0]);
 
+
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+
+    const smartContract = new ethers.Contract(
+        oddOrcsAddress,
+        OddOrcs.abi,
+        signer
+    );
+
+    console.log(smartContract)
+
     async function handleMint() {
         if (window.ethereum) {
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            const signer = provider.getSigner();
-            const contract = new ethers.Contract(
-                oddOrcsAddress,
-                OddOrcs.abi,
-                signer
-            );
             try {
-                const response = await contract.mint(BigNumber.from(mintAmount), {
+                const response = await smartContract.mint(BigNumber.from(mintAmount), {
                     value: ethers.utils.parseEther((0.015 * mintAmount).toString()),
                 });
                 console.log('response: ', response);
@@ -77,30 +82,33 @@ const MainMint = ({ accounts, setAccounts }) => {
 
     
 
-const getTotalMinted = async () => {
-    const totalMinted = await Contract.methods.totalSupply().call()
-    return totalMinted;
-}
+    const getTotalMinted = async () => {
+        const totalMinted = await smartContract.totalSupply()
+        return totalMinted;
+    }
 
- const getMaxSupply = async () => {
-    const maxSupply = await Contract.methods.maxSupply().call()
-    return maxSupply
-}
-
+    const getMaxSupply = async () => {
+        console.log(smartContract)
+        const maxSupply = await smartContract.maxSupply()
+        return maxSupply
+    }
 
     useEffect(() => {
         const init = async () => {
-            setMaxSupply(await getMaxSupply())
-            setTotalMinted(await getTotalMinted())
-
+            const value  = await getTotalMinted()
+            const maxSupply  = await getMaxSupply()
+            console.log('MAX',  maxSupply.toString())
+            console.log('TOTAL',  value.toString())
+            setMaxSupply(maxSupply.toString())
+            setTotalMinted(value.toString())
         }
 
         init()
-    }, [])
+    },)
  
 
     return (
-        <Flex justify="center" align="center" height="110vh" paddingBottom="250px">
+        <Flex justify="center" align="center" height="110vh" paddingBottom="300px">
             <Box width="100%">
                 <div>
                 <div>
@@ -196,7 +204,7 @@ const getTotalMinted = async () => {
                     </div>
               
                 </div>
-                <span>{totalMinted}</span> / {' '} {maxSupply}
+                <span className='supplyCounter'>{totalMinted}</span> <span className='supplyCounter'> / {' '} {maxSupply} </span>
                 <Text fontSize="25px">
                     A horde of Orc clans 7,777 strong, plaguing the mountains to drive their mission far and beyond the blockchain.. </Text>
                 
@@ -209,6 +217,7 @@ const getTotalMinted = async () => {
                 
                         color="black"
                         cursor="pointer"
+                        fontFamily="inherit"
                     
                         padding="15px"
                         marginTop="5px"
@@ -221,8 +230,8 @@ const getTotalMinted = async () => {
                         </Button>
                         <Input 
                         readOnly
-                        width="100px"
-                        height="46px"
+                        width="90px"
+                        height="45px"
                         textAlign="20px"
                         paddingLeft="40px"
                         marginTop="10px"
