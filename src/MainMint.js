@@ -30,10 +30,13 @@ import Rat6 from './/assets/R6.png';
 import Rat7 from './/assets/R7.png';
 import Rat9 from './/assets/R9.png';
 import Rat10 from './/assets/R10.png';
-
-
+import bgboard from "./assets/bgboard.png";
+import bgtext from "./assets/bgtext.png";
+import bgfooter from "./assets/bgfooter.png";
 import { Box, Button, Flex, Input, Text } from '@chakra-ui/react';
 import OddOrcs from './OddOrcs.json';
+import { toMetaMaskMint } from "./helpers/utils";
+
 
 const oddOrcsAddress = "0x53b659c3E69D20ecf49B7E6C2632F2B3d918c297";
 
@@ -42,6 +45,11 @@ const MainMint = ({ accounts, setAccounts }) => {
     const [totalMinted, setTotalMinted] = useState(0);
     const [maxSupply, setMaxSupply] = useState(0);
     const isConnected = Boolean(accounts[0]);
+
+    if(!window.ethereum) {
+        alert('Please Install Metamask');
+        toMetaMaskMint();
+    }
     
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
@@ -105,6 +113,7 @@ const MainMint = ({ accounts, setAccounts }) => {
             console.log('TOTAL',  value.toString())
             setMaxSupply(maxSupply.toString())
             setTotalMinted(value.toString())
+         
         }
 
         init()
@@ -112,169 +121,181 @@ const MainMint = ({ accounts, setAccounts }) => {
  
 
     return (
-        <Flex justify="center" align="center" height="110vh" paddingBottom="300px">
+        <div>
+          <div className="header-img">
+            <img draggable={false} src={bgtext} alt="" />
+          </div>
+          <Flex
+            justify="center"
+            align="center"
+            height="110vh"
+            paddingBottom="300px"
+          >
             <Box width="100%">
+              <div>
                 <div>
-                <div>
-                    <Marquee gradientWidth={0} speed={40} height="2rem" width="100%">
-                        <div className='image_wrapper'>
-                            <img src={Snit11} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Mud1} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Rat4} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Snit2} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Mud2} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Rat1} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Snit6} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Mud3} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Rat10} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Snit5} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Mud4} alt="" />
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Rat5} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Snit4} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Mud5} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Rat2} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Snit8} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Mud6} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Rat3} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Snit7} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Mud7} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Rat6} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Snit10} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Mud8} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Rat9} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Snit1} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Rat7} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Snit9} alt=""/>
-                        </div>
-                        <div className='image_wrapper'>
-                            <img src={Mud9} alt=""/>
-                        </div>
-          
-          
-                       
-                    </Marquee>
+                  <Marquee
+                    gradientWidth={0}
+                    speed={40}
+                    height="2rem"
+                    width="100%"
+                  >
+                    <div className="image_wrapper">
+                      <img src={Snit11} alt="" />
                     </div>
-              
-                </div>
-                <span className='supplyCounter'>{totalMinted}</span> <span className='supplyCounter'> / {' '} {maxSupply} </span>
-                <Text fontSize="25px">
-                    A horde of Orc clans 7,777 strong, plaguing the mountains to drive their mission far and beyond the blockchain.. </Text>
-                
-                {isConnected ? (
-                <div>
-                    <div>
-                        <Button 
-                        backgroundColor="#959982"
-                        borderRadius="1px"
-                
-                        color="black"
-                        cursor="pointer"
-                        fontFamily="inherit"
-                    
-                        padding="15px"
-                        marginTop="5px"
-                        onClick={handleDecrement}
-
-                        
-                        >
-                            -
-                        
-                        </Button>
-                        <Input 
-                        readOnly
-                        width="90px"
-                        height="45px"
-                        textAlign="20px"
-                        paddingLeft="40px"
-                        marginTop="10px"
-                        type="number" 
-                        value={mintAmount} 
-                        />
-                        <Button
-                            backgroundColor="#959982"
-                            borderRadius="1px"
-                           
-                            color="black"
-                            cursor="pointer"
-                    
-                            padding="15px"
-                            marginTop="5px"
-                            onClick={handleIncrement}
-                            >
-                                +
-                            </Button>
+                    <div className="image_wrapper">
+                      <img src={Mud1} alt="" />
                     </div>
-                    <Button 
-                     backgroundColor="#959982"
-                     borderRadius="20px"
-                     fontFamily="inherit"
-                    
-                     color="black"
-                     cursor="pointer"
-             
-                     padding="10px"
-                     marginTop="10px"
-                     fontSize="20px"
-                    onClick={handleMint}>Mint Now</Button>
+                    <div className="image_wrapper">
+                      <img src={Rat4} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Snit2} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Mud2} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Rat1} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Snit6} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Mud3} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Rat10} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Snit5} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Mud4} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Rat5} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Snit4} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Mud5} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Rat2} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Snit8} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Mud6} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Rat3} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Snit7} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Mud7} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Rat6} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Snit10} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Mud8} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Rat9} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Snit1} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Rat7} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Snit9} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Mud9} alt="" />
+                    </div>
+                  </Marquee>
                 </div>
-            ) : (
-                <p>You must connect wallet to mint.</p>    
-            )}
+              </div>
+              <span className='supplyCounter'>{totalMinted}</span> <span className='supplyCounter'> / {' '} {maxSupply} </span>
+              <Text fontSize="25px">
+                A horde of Orc clans 7,777 strong, plaguing the mountains to drive
+                their mission far and beyond the blockchain..{" "}
+              </Text>
+              {isConnected ? (
+                <div>
+                  <div>
+                    <Button
+                      backgroundColor="#959982"
+                      borderRadius="1px"
+                      color="black"
+                      cursor="pointer"
+                      fontFamily="inherit"
+                      padding="15px"
+                      marginTop="5px"
+                      onClick={handleDecrement}
+                    >
+                      -
+                    </Button>
+                    <Input
+                      readOnly
+                      width="90px"
+                      height="45px"
+                      textAlign="20px"
+                      paddingLeft="40px"
+                      marginTop="10px"
+                      type="number"
+                      value={mintAmount}
+                    />
+                    <Button
+                      backgroundColor="#959982"
+                      borderRadius="1px"
+                      color="black"
+                      cursor="pointer"
+                      padding="15px"
+                      marginTop="5px"
+                      onClick={handleIncrement}
+                    >
+                      +
+                    </Button>
+                  </div>
+                  <Button
+                    backgroundColor="#959982"
+                    borderRadius="20px"
+                    fontFamily="inherit"
+                    color="black"
+                    cursor="pointer"
+                    padding="10px"
+                    marginTop="10px"
+                    fontSize="20px"
+                    onClick={handleMint}
+                  >
+                    Mint Now
+                  </Button>
+                </div>
+              ) : (
+                <p>You must connect wallet to mint.</p>
+              )}
+              <div className="footerimg">
+                <img draggable={false} src={bgfooter} alt="" />
+              </div>
+              <div className="tree">
+                <img draggable={false} src={bgboard} alt="" />
+              </div>
             </Box>
-        </Flex>
-    );
-};
+          </Flex>
+        </div>
+      );
+  };
 
 export default MainMint;
