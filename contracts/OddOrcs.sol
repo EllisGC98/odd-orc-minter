@@ -1,8 +1,39 @@
 // SPDX-License-Identifier: Unlicensed
 
-// Created By EGC 
+/**
 
-pragma solidity ^0.8.14;
+
+       , ·. ,.-·~·.,   ‘        ;'*¨'`·- .,  ‘                ;'*¨'`·- .,  ‘                               
+      /  ·'´,.-·-.,   `,'‚        \`:·-,. ,   '` ·.  '          \`:·-,. ,   '` ·.  '                         
+     /  .'´\:::::::'\   '\ °       '\:/   ;\:'`:·,  '`·, '        '\:/   ;\:'`:·,  '`·, '                      
+  ,·'  ,'::::\:;:-·-:';  ';\‚        ;   ;'::\;::::';   ;\         ;   ;'::\;::::';   ;\                      
+ ;.   ';:::;´       ,'  ,':'\‚       ;  ,':::;  `·:;;  ,':'\'       ;  ,':::;  `·:;;  ,':'\'                    
+  ';   ;::;       ,'´ .'´\::';‚     ;   ;:::;    ,·' ,·':::;      ;   ;:::;    ,·' ,·':::;                    
+  ';   ':;:   ,.·´,.·´::::\;'°     ;  ;:::;'  ,.'´,·´:::::;      ;  ;:::;'  ,.'´,·´:::::;                    
+   \·,   `*´,.·'´::::::;·´       ':,·:;::-·´,.·´\:::::;´'      ':,·:;::-·´,.·´\:::::;´'                     
+    \\:¯::\:::::::;:·´           \::;. -·´:::::;\;·´          \::;. -·´:::::;\;·´                        
+     `\:::::\;::·'´  °             \;'\::::::::;·´'              \;'\::::::::;·´'                           
+         ¯                           `\;::-·´                     `\;::-·´                               
+          ‘                                                                                               
+       , ·. ,.-·~·.,   ‘         ,. -  .,                           ,. - .,                      ,. -,    
+      /  ·'´,.-·-.,   `,'‚       ,' ,. -  .,  `' ·,               ,·'´ ,. - ,   ';\            ,.·'´,    ,'\   
+     /  .'´\:::::::'\   '\ °     '; '·~;:::::'`,   ';\        ,·´  .'´\:::::;'   ;:'\ '     ,·'´ .·´'´-·'´::::\' 
+  ,·'  ,'::::\:;:-·-:';  ';\‚      ;   ,':\::;:´  .·´::\'     /  ,'´::::'\;:-/   ,' ::;  '  ;    ';:::\::\::;:'  
+ ;.   ';:::;´       ,'  ,':'\‚     ;  ·'-·'´,.-·'´:::::::';  ,'   ;':::::;'´ ';   /\::;' '    \·.    `·;:'-·'´     
+  ';   ;::;       ,'´ .'´\::';‚  ;´    ':,´:::::::::::·´'   ;   ;:::::;   '\*'´\::\'  °     \:`·.   '`·,  '     
+  ';   ':;:   ,.·´,.·´::::\;'°   ';  ,    `·:;:-·'´        ';   ';::::';    '\::'\/.'          `·:'`·,   \'      
+   \·,   `*´,.·'´::::::;·´      ; ,':\'`:·.,  ` ·.,        \    '·:;:'_ ,. -·'´.·´\‘         ,.'-:;'  ,·\     
+    \\:¯::\:::::::;:·´         \·-;::\:::::'`:·-.,';       '\:` ·  .,.  -·:´::::::\'   ,·'´     ,.·´:::'\    
+     `\:::::\;::·'´  °           \::\:;'` ·:;:::::\::\'       \:::::::\:::::::;:·'´'     \`*'´\::::::::;·'‘   
+         ¯                       '·-·'       `' · -':::''        `· :;::\;::-·´           \::::\:;:·´        
+          ‘                                                                               '`*'´‘            
+
+                         
+*/
+
+// Author: EllisGC_;
+
+pragma solidity ^0.8.16;
 
 import "erc721a/contracts/ERC721A.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
@@ -15,7 +46,7 @@ contract OddOrcs is ERC721A, Ownable {
 
     string public baseURI;
     string public baseExtension = ".json";
-    string public notRevealedUri;
+    string public hiddenMetadataURI;
 
 
     address[] public orclistedAddresses;
@@ -25,38 +56,44 @@ contract OddOrcs is ERC721A, Ownable {
     uint256 public maxMintAmount = 5;
     uint256 public nftPerAddressLimit = 5;
 
-    bool public paused = false;
+    bool public paused = true;
     bool public orcsRevealed = false;
     bool public onlyOrcList = true;
 
     constructor( 
         string memory _name,
         string memory _symbol,
-        string memory _initBaseURI,
-        string memory _initNotRevealedUri
+        string memory _hiddenMetadataURI
     ) ERC721A(_name, _symbol) {
-        setBaseURI(_initBaseURI);
-        setNotRevealedURI(_initNotRevealedUri);
+        setHiddenMetadataURI(_hiddenMetadataURI);
     }
 
     function _startTokenId() internal view override virtual returns (uint256) {
-        return 1;
-  }
+            return 1;
+    }
 
-
-    function mint(uint256 quantity) external payable {
-        require(!paused, "The Orc council has paused the contract");
+    modifier mintCompliance(uint256 quantity) {
         require(quantity > 0, "Must mint more than 0 tokens");
-        require(quantity + _numberMinted(msg.sender) <= maxMintAmount, "Exceeded the limit of Orcs");
         require(totalSupply() + quantity <= maxSupply, "Not enough tokens left");
-  
+        _;
+    }
+
+    modifier mintPriceCompliance(uint256 quantity) {
+        require(msg.value >= (price * quantity), "Not enough ether has been sent to gain entry to middle earth");
+        _;
+    }
+
+
+    function mint(uint256 quantity) external payable mintCompliance(quantity) mintPriceCompliance(quantity) {
+        require(!paused, "The Orc council has paused the contract");
+        require(quantity + _numberMinted(msg.sender) <= maxMintAmount, "Exceeded the limit of Orcs");
+
         if (msg.sender != owner()) {
             if (onlyOrcList == true) {
                 require(isOrclisted(msg.sender), "User is not on the Orc List");
                 uint256 ownerTokenCount = balanceOf(msg.sender);
                 require(ownerTokenCount < nftPerAddressLimit);
             }
-            require(msg.value >= (price * quantity), "Not enough ether has been sent to gain entry to middle earth");
         } 
            _safeMint(msg.sender, quantity);
     }
@@ -77,7 +114,7 @@ contract OddOrcs is ERC721A, Ownable {
         );
 
         if(orcsRevealed == false) {
-            return notRevealedUri;
+            return hiddenMetadataURI;
         }
 
         string memory currentBaseURI = _baseURI();
@@ -99,13 +136,13 @@ contract OddOrcs is ERC721A, Ownable {
         price = _newPrice;
     }
 
-    function setmaxMintAmount(uint256 _newmaxMintAmount) public onlyOwner {
-        maxMintAmount = _newmaxMintAmount;
+    function setMaxMintAmount(uint256 _newMaxMintAmount) public onlyOwner {
+        maxMintAmount = _newMaxMintAmount;
     }
 
 
-    function setNotRevealedURI(string memory _notRevealedURI) public onlyOwner {
-        notRevealedUri = _notRevealedURI;
+    function setHiddenMetadataURI(string memory _hiddenMetadataURI) public onlyOwner {
+        hiddenMetadataURI = _hiddenMetadataURI;
     }
 
     function setBaseURI(string memory _newBaseURI) public onlyOwner {
@@ -126,7 +163,6 @@ contract OddOrcs is ERC721A, Ownable {
     }
 
     function orclistUsers(address[] calldata _users) public onlyOwner {
-        delete orclistedAddresses;
         orclistedAddresses = _users;
     }
 

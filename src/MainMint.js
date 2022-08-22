@@ -38,13 +38,14 @@ import OddOrcs from './OddOrcs.json';
 import { toMetaMaskMint } from "./helpers/utils";
 
 
-const oddOrcsAddress = "0x53b659c3E69D20ecf49B7E6C2632F2B3d918c297";
+const oddOrcsAddress = "0xdb41F3bb77eC6649301bE558b48AAAD9E752320B";
 
 const MainMint = ({ accounts, setAccounts }) => {
     const [mintAmount, setMintAmount] = useState(1);
     const [totalMinted, setTotalMinted] = useState(0);
     const [maxSupply, setMaxSupply] = useState(0);
     const isConnected = Boolean(accounts[0]);
+
 
     if(!window.ethereum) {
         alert('Please Install Metamask');
@@ -71,8 +72,10 @@ const MainMint = ({ accounts, setAccounts }) => {
                     value: ethers.utils.parseEther((0.015 * mintAmount).toString()),
                 });
                 console.log('response: ', response);
+                alert("Mint Successful");
             } catch (err) {
                 console.log("error: ", err)
+                alert(err.message);
 
             }
         }
@@ -89,7 +92,6 @@ const MainMint = ({ accounts, setAccounts }) => {
         setMintAmount(mintAmount + 1);
     };
 
-    
 
     const getTotalMinted = async () => {
         const totalMinted = await smartContract.totalSupply()
@@ -102,6 +104,18 @@ const MainMint = ({ accounts, setAccounts }) => {
         const maxSupply = await smartContract.maxSupply()
         return maxSupply
     }
+
+    /*async function canMint() {
+      if(totalMinted = maxSupply) {
+        Button = <mintButton onClick={this.canMint}></mintButton>;
+      } else {
+        Button = <mintButton onClick={this.handleMint}></mintButton>;
+      }
+    } */
+
+
+  
+
 
 
 
