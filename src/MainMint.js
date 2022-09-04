@@ -38,7 +38,7 @@ import OddOrcs from './OddOrcs.json';
 import { toMetaMaskMint } from "./helpers/utils";
 
 
-const oddOrcsAddress = "0xdb41F3bb77eC6649301bE558b48AAAD9E752320B";
+const oddOrcsAddress = "0x6Eb31d885281D2c980b795EcB387aD015F307d7A";
 
 const MainMint = ({ accounts, setAccounts }) => {
     const [mintAmount, setMintAmount] = useState(1);
@@ -105,16 +105,7 @@ const MainMint = ({ accounts, setAccounts }) => {
         return maxSupply
     }
 
-    /*async function canMint() {
-      if(totalMinted = maxSupply) {
-        Button = <mintButton onClick={this.canMint}></mintButton>;
-      } else {
-        Button = <mintButton onClick={this.handleMint}></mintButton>;
-      }
-    } */
 
-
-  
 
 
 

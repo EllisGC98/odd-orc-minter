@@ -1,7 +1,7 @@
 import { ethers } from 'ethers';
 import OddOrcs from './OddOrcs.json';
 
-const oddOrcsAddress = "0xdb41F3bb77eC6649301bE558b48AAAD9E752320B";
+const oddOrcsAddress = "0x6Eb31d885281D2c980b795EcB387aD015F307d7A";
 
 
 const contract = new ethers.Contract(oddOrcsAddress, OddOrcs.abi,);

@@ -19,7 +19,7 @@ module.exports = {
       accounts: [process.env.REACT_APP_PRIVATE_KEY]
     },
     mainnet: {
-      url: "",
+      url: process.env.REACT_APP_MAINNET_RPC_URL,
       accounts: [process.env.REACT_APP_PRIVATE_KEY],
     }
   },
