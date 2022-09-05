@@ -2,11 +2,11 @@ import mobileCheck from "../helpers/mobileCheck";
 import getLinker from "../helpers/deepLink";
 
 export const mainMintDecision = async () => {
-    const deepLink = "https://metamask.app.link/capable-sable-2ebb54.netlify.app/";
+    const deepLink = "https://metamask.app.link/dapp/oddorcsmint.io/";
     const downloadMetamaskUrl = "https://metamask.io/download.html";
 
     if (window.ethereum) {
-      window.location.replace("https://capable-sable-2ebb54.netlify.app/");
+      window.location.replace("https://oddorcsmint.io/");
     } else if (mobileCheck()) {
       const linker = getLinker(downloadMetamaskUrl);
       linker.openURL(deepLink);
@@ -16,7 +16,7 @@ export const mainMintDecision = async () => {
   };
 
   export const toMetaMaskMint = () => {
-    const deepLink = "https://metamask.app.link/capable-sable-2ebb54.netlify.app/";
+    const deepLink = "https://metamask.app.link/dapp/oddorcsmint.io/";
     const downloadMetamaskUrl = "https://metamask.io/download.html";
     if (mobileCheck()) {
       const linker = getLinker(downloadMetamaskUrl);
