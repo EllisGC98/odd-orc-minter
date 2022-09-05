@@ -6,7 +6,7 @@ export const mainMintDecision = async () => {
     const downloadMetamaskUrl = "https://metamask.io/download.html";
 
     if (window.ethereum) {
-      window.location.replace("https://oddorcsmint.io/");
+      window.location.replace("https://www.oddorcsmint.io/");
     } else if (mobileCheck()) {
       const linker = getLinker(downloadMetamaskUrl);
       linker.openURL(deepLink);
