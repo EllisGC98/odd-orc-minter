@@ -48,7 +48,7 @@ const MainMint = ({ accounts, setAccounts }) => {
 
 
     if(!window.ethereum) {
-        alert('Please Install Metamask');
+       // alert('Please Install Metamask');
         toMetaMaskMint();
     }
     
