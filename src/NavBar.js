@@ -4,6 +4,7 @@ import Twitter from "./assets/Twitter.png";
 import Opensea from "./assets/Opensea.png";
 import Discord from "./assets/Discord.png";
 import { toMetaMaskMint } from "./helpers/utils";
+import { mainMintDecision } from "./helpers/utils";
 
 /*const shortenAddress = (address) => {
     return `${address.slice(0, 4)}...${address.slice(
@@ -27,7 +28,7 @@ const NavBar = ({ accounts, setAccounts }) => {
             setAccounts(accounts);
         
     } else {
-       toMetaMaskMint();
+       mainMintDecision();
 
     }
 }
