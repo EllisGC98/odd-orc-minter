@@ -47,10 +47,10 @@ const MainMint = ({ accounts, setAccounts }) => {
     const isConnected = Boolean(accounts[0]);
 
 
-    if(!window.ethereum) {
+    /*if(!window.ethereum) {
        // alert('Please Install Metamask');
         toMetaMaskMint();
-    }
+    } */
     
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
