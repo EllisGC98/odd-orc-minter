@@ -46,11 +46,6 @@ const MainMint = ({ accounts, setAccounts }) => {
     const [maxSupply, setMaxSupply] = useState(0);
     const isConnected = Boolean(accounts[0]);
 
-
-    if(!window.ethereum) {
-       // alert('Please Install Metamask');
-        toMetaMaskMint();
-    }
     
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
@@ -64,8 +59,10 @@ const MainMint = ({ accounts, setAccounts }) => {
     console.log(smartContract)
 
 
-
     async function handleMint() {
+        if (!window.ethereum) {
+          toMetaMaskMint();
+        }
         if (window.ethereum) {
             try {
                 const response = await smartContract.mint(BigNumber.from(mintAmount), {
@@ -76,8 +73,7 @@ const MainMint = ({ accounts, setAccounts }) => {
             } catch (err) {
                 console.log("error: ", err)
                 alert(err.message);
-
-            }
+            } 
         }
     }
 
