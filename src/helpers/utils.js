@@ -20,7 +20,6 @@ export const mainMintDecision = async () => {
     const deepLink = "https://metamask.app.link/dapp/oddorcsmint.io";
     const downloadMetamaskUrl = "https://metamask.io/download.html";
     if (mobileCheck()) {
-      const linker = getLinker(downloadMetamaskUrl);
       linker.openURL(deepLink);
     } else {
       window.open(downloadMetamaskUrl);
