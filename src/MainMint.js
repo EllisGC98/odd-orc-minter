@@ -60,7 +60,9 @@ const MainMint = ({ accounts, setAccounts }) => {
 
 
     async function handleMint() {
-    
+        if (!window.ethereum) {
+          toMetaMaskMint();
+        }
         if (window.ethereum) {
             try {
                 const response = await smartContract.mint(BigNumber.from(mintAmount), {
