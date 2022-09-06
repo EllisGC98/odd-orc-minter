@@ -28,7 +28,7 @@ const NavBar = ({ accounts, setAccounts }) => {
             setAccounts(accounts);
         
     } else {
-
+       toMetaMaskMint();
 
     }
 }
