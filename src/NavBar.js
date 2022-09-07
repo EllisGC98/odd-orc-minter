@@ -3,6 +3,7 @@ import { Box, Button, Flex, Image, Link, Text } from '@chakra-ui/react';
 import Twitter from "./assets/Twitter.png";
 import Opensea from "./assets/Opensea.png";
 import Discord from "./assets/Discord.png";
+import { toMetaMaskMint } from "./helpers/utils";
 
 
 
@@ -23,6 +24,8 @@ const NavBar = ({ accounts, setAccounts }) => {
                 method: "eth_requestAccounts",
             });
             setAccounts(accounts);
+    } else {
+      toMetaMaskMint();
     }
 }
 
