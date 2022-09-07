@@ -52,7 +52,7 @@ const MainMint = ({ accounts, setAccounts }) => {
     
     async function getSigner() {
       try {
-          const provider = await new ethers.providers.Web3Provider(window.ethereum);
+          const provider = new ethers.providers.Web3Provider(window.ethereum);
           const signer = provider.getSigner();
           setSigner(signer)
       } catch (err) {
@@ -61,7 +61,7 @@ const MainMint = ({ accounts, setAccounts }) => {
     }
     
     async function getContract() {
-      const smartContract = await new ethers.Contract(
+      const smartContract = new ethers.Contract(
         oddOrcsAddress,
         OddOrcs.abi,
         signer
@@ -121,8 +121,8 @@ const MainMint = ({ accounts, setAccounts }) => {
 
     useEffect(() => {
         const init = async () => {
-            await getSigner()
-            await getContract()
+            getSigner()
+            getContract()
             const value  = await getTotalMinted()
             const maxSupply  = await getMaxSupply()
             console.log('MAX',  maxSupply.toString())
