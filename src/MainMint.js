@@ -128,8 +128,9 @@ const MainMint = ({ accounts, setAccounts }) => {
     useEffect(() => {
         getSigner()
         getContract()
+    
 
-    },[])
+    },)
  
 
     return (
