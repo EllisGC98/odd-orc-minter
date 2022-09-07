@@ -68,6 +68,7 @@ const MainMint = ({ accounts, setAccounts }) => {
     );
 
     setContract(smartContract)
+    await init()
     console.log(smartContract)
     }
 
@@ -114,25 +115,23 @@ const MainMint = ({ accounts, setAccounts }) => {
         return maxSupply
     }
 
+    const init = async () => {
+      const value  = await getTotalMinted()
+            const maxSupply  = await getMaxSupply()
+            console.log('MAX',  maxSupply.toString())
+            console.log('TOTAL',  value.toString())
+            setMaxSupply(maxSupply.toString())
+            setTotalMinted(value.toString())
+    }
 
 
 
 
 
     useEffect(() => {
-        const init = async () => {
-            getSigner()
-            getContract()
-            const value  = await getTotalMinted()
-            const maxSupply  = await getMaxSupply()
-            console.log('MAX',  maxSupply.toString())
-            console.log('TOTAL',  value.toString())
-            setMaxSupply(maxSupply.toString())
-            setTotalMinted(value.toString())
-         
-        }
+        getSigner()
+        getContract()
 
-        init()
     },[])
  
 
