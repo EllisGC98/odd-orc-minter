@@ -129,13 +129,11 @@ const MainMint = ({ accounts, setAccounts }) => {
             console.log('TOTAL',  value.toString())
             setMaxSupply(maxSupply.toString())
             setTotalMinted(value.toString())
-       
-            
          
         }
 
         init()
-    },)
+    },[])
  
 
     return (
