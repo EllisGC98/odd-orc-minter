@@ -47,7 +47,7 @@ const MainMint = ({ accounts, setAccounts }) => {
     const [maxSupply, setMaxSupply] = useState(0);
     const isConnected = Boolean(accounts[0]);
     const [signer, setSigner] = useState(null);
-    const [contract,  setContract] = useState(null);
+    const [smartContract,  setContract] = useState(null);
 
     
     async function getSigner() {
