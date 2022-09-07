@@ -45,19 +45,24 @@ const MainMint = ({ accounts, setAccounts }) => {
     const [totalMinted, setTotalMinted] = useState(0);
     const [maxSupply, setMaxSupply] = useState(0);
     const isConnected = Boolean(accounts[0]);
+    const [smartContract, setSmartContract] = useState(null);
 
-    
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
+    if (window.ethereum) {
+      const provider = new ethers.providers.Web3Provider(window.ethereum);
+      const signer = provider.getSigner();
 
-    const smartContract = new ethers.Contract(
+      const smartContract = new ethers.Contract(
         oddOrcsAddress,
         OddOrcs.abi,
         signer
-    );
+      );
 
-    console.log(smartContract)
+      if (smartContract) {
+        setSmartContract(smartContract);
+      }
 
+      console.log(smartContract)
+    }
 
     async function handleMint() {
         if (!window.ethereum) {
