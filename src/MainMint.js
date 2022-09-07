@@ -38,6 +38,7 @@ import OddOrcs from './OddOrcs.json';
 import { toMetaMaskMint } from "./helpers/utils";
 
 
+
 const oddOrcsAddress = "0x6Eb31d885281D2c980b795EcB387aD015F307d7A";
 
 const MainMint = ({ accounts, setAccounts }) => {
@@ -45,23 +46,35 @@ const MainMint = ({ accounts, setAccounts }) => {
     const [totalMinted, setTotalMinted] = useState(0);
     const [maxSupply, setMaxSupply] = useState(0);
     const isConnected = Boolean(accounts[0]);
+    const [signer, setSigner] = useState(null);
+    const [contract,  setContract] = useState(null);
 
     
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
-
-    const smartContract = new ethers.Contract(
+    async function getSigner() {
+      try {
+          const provider = await new ethers.providers.Web3Provider(window.ethereum);
+          const signer = provider.getSigner();
+          setSigner(signer)
+      } catch (err) {
+        console.log(err)
+      }
+    }
+    
+    async function getContract() {
+      const smartContract = await new ethers.Contract(
         oddOrcsAddress,
         OddOrcs.abi,
         signer
     );
 
+    setContract(smartContract)
     console.log(smartContract)
+    }
 
 
     async function handleMint() {
         if (!window.ethereum) {
-          toMetaMaskMint();
+           toMetaMaskMint();
         }
         if (window.ethereum) {
             try {
@@ -108,12 +121,16 @@ const MainMint = ({ accounts, setAccounts }) => {
 
     useEffect(() => {
         const init = async () => {
+            await getSigner()
+            await getContract()
             const value  = await getTotalMinted()
             const maxSupply  = await getMaxSupply()
             console.log('MAX',  maxSupply.toString())
             console.log('TOTAL',  value.toString())
             setMaxSupply(maxSupply.toString())
             setTotalMinted(value.toString())
+       
+            
          
         }
 
