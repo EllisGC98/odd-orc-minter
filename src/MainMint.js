@@ -48,13 +48,16 @@ const MainMint = ({ accounts, setAccounts }) => {
     const isConnected = Boolean(accounts[0]);
     const [signer, setSigner] = useState(null);
     const [smartContract,  setContract] = useState(null);
+    const [counter, setCounter] = useState(0)
 
     
     async function getSigner() {
       try {
           const provider = await new ethers.providers.Web3Provider(window.ethereum);
-          const signer = provider.getSigner();
+          const signer = await provider.getSigner();
           setSigner(signer)
+          console.log(signer)
+          setCounter(counter+1)
       } catch (err) {
         console.log(err)
       }
@@ -70,6 +73,8 @@ const MainMint = ({ accounts, setAccounts }) => {
     setContract(smartContract)
     await init()
     console.log(smartContract)
+    
+   
     }
 
 
@@ -125,11 +130,16 @@ const MainMint = ({ accounts, setAccounts }) => {
     }
 
     useEffect(() => {
+      
+      if (counter < 3) {
         getSigner()
         getContract()
+  
+      }
+  
     
-
-    },);
+// eslint-disable-next-line
+    },[counter]);
  
 
     return (
@@ -239,7 +249,7 @@ const MainMint = ({ accounts, setAccounts }) => {
                   </Marquee>
                 </div>
               </div>
-              <span className='supplyCounter'>{totalMinted}</span> <span className='supplyCounter'> / {' '} {maxSupply} </span>
+              {maxSupply && totalMinted && (<span className='supplyCounter'>{totalMinted}  / {' '} {maxSupply} </span>)}
               <Text fontSize="25px">
                 A horde of Orc clans 7,777 strong, plaguing the mountains to drive
                 their mission far and beyond the blockchain..{" "}
