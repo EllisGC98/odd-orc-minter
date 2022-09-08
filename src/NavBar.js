@@ -59,21 +59,21 @@ const NavBar = ({ accounts, setAccounts }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image src={Twitter} boxSize="42px" margin="0 15px" />
+              <Image src={Twitter} boxSize="42px" margin="0 25px" />
             </Link>
             <Link
               href="https://opensea.io/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image src={Opensea} boxSize="42px" margin="0 15px" />
+              <Image src={Opensea} boxSize="42px" margin="0 25px" />
             </Link>
             <Link
               href="http://discord.gg/OddOrcs"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <Image src={Discord} boxSize="42px" margin="0 15px" />
+              <Image src={Discord} boxSize="42px" margin="0 25px" />
             </Link>
           </Flex>
   
