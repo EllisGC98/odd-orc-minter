@@ -251,7 +251,7 @@ const MainMint = ({ accounts, setAccounts }) => {
               </div>
               {maxSupply && totalMinted && (<span className='supplyCounter'>{totalMinted}  / {' '} {maxSupply} </span>)}
               <Text fontSize="25px">
-                A horde of Orc clans 7,777 strong, plaguing the mountains to drive
+                A horde of Orc clans, plaguing the mountains to drive
                 their mission far and beyond the blockchain..{" "}
               </Text>
               {isConnected ? (
