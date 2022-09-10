@@ -62,7 +62,7 @@ const NavBar = ({ accounts, setAccounts }) => {
               <Image src={Twitter} boxSize="42px" margin="0 25px" />
             </Link>
             <Link
-              href="https://opensea.io/"
+              href="https://opensea.io/collection/odd-orcs"
               target="_blank"
               rel="noopener noreferrer"
             >
