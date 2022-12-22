@@ -249,7 +249,7 @@ const MainMint = ({ accounts, setAccounts }) => {
                   </Marquee>
                 </div>
               </div>
-              {maxSupply && totalMinted && (<span className='supplyCounter'>{totalMinted}  / {' '} {maxSupply} </span>)}
+              {maxSupply && totalMinted && (<span className='supplyCounter'>{totalMinted}  / {' '} {4444} </span>)}
               <Text fontSize="25px">
                 A horde of Orc clans, plaguing the mountains to drive
                 their mission far and beyond the blockchain..{" "}
