@@ -249,10 +249,9 @@ const MainMint = ({ accounts, setAccounts }) => {
                   </Marquee>
                 </div>
               </div>
-              {maxSupply && totalMinted && (<span className='supplyCounter'>{totalMinted}  / {' '} {4444} </span>)}
+              {maxSupply && totalMinted && (<span className='supplyCounter'>{totalMinted}  / {' '} {5555} </span>)}
               <Text fontSize="25px">
-                A horde of Orc clans, plaguing the mountains to drive
-                their mission far and beyond the blockchain..{" "}
+                MINT IS PAUSED{" "}
               </Text>
               {isConnected ? (
                 <div>
@@ -302,7 +301,7 @@ const MainMint = ({ accounts, setAccounts }) => {
                     fontSize="20px"
                     onClick={handleMint}
                   >
-                    Mint Now
+                    Mint Soon
                   </Button>
                 </div>
               ) : (
