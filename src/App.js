@@ -3,6 +3,7 @@ import './App.css';
 import MainMint from './MainMint';
 import NavBar from './NavBar';
 
+
 function App() {
   const [accounts, setAccounts] = useState([]);
 

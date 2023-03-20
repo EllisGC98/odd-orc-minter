@@ -10,7 +10,6 @@ import Mud5 from './/assets/M5.png';
 import Mud6 from './/assets/M6.png';
 import Mud7 from './/assets/M7.png';
 import Mud8 from './/assets/M8.png';
-import Mud9 from './/assets/M9.png';
 import Snit1 from './/assets/S1.png';
 import Snit2 from './/assets/S2.png';
 import Snit4 from './/assets/S4.png';
@@ -19,8 +18,6 @@ import Snit6 from './/assets/S6.png';
 import Snit7 from './/assets/S7.png';
 import Snit8 from './/assets/S8.png';
 import Snit9 from './/assets/S9.png';
-import Snit10 from './/assets/S10.png';
-import Snit11 from './/assets/S11.png';
 import Rat1 from './/assets/R1.png';
 import Rat2 from './/assets/R2.png';
 import Rat3 from './/assets/R3.png';
@@ -30,9 +27,7 @@ import Rat6 from './/assets/R6.png';
 import Rat7 from './/assets/R7.png';
 import Rat9 from './/assets/R9.png';
 import Rat10 from './/assets/R10.png';
-import bgboard from "./assets/bgboard.png";
-import bgtext from "./assets/bgtext.png";
-import bgfooter from "./assets/bgfooter.png";
+import bgtext from "./assets/NewLogo.png";
 import { Box, Button, Flex, Input, Text } from '@chakra-ui/react';
 import OddOrcs from './OddOrcs.json';
 import { toMetaMaskMint } from "./helpers/utils";
@@ -151,7 +146,7 @@ const MainMint = ({ accounts, setAccounts }) => {
             justify="center"
             align="center"
             height="110vh"
-            paddingBottom="300px"
+            paddingBottom="550px"
           >
             <Box width="100%">
               <div>
@@ -162,9 +157,6 @@ const MainMint = ({ accounts, setAccounts }) => {
                     height="2rem"
                     width="100%"
                   >
-                    <div className="image_wrapper">
-                      <img src={Snit11} alt="" />
-                    </div>
                     <div className="image_wrapper">
                       <img src={Mud1} alt="" />
                     </div>
@@ -226,9 +218,6 @@ const MainMint = ({ accounts, setAccounts }) => {
                       <img src={Rat6} alt="" />
                     </div>
                     <div className="image_wrapper">
-                      <img src={Snit10} alt="" />
-                    </div>
-                    <div className="image_wrapper">
                       <img src={Mud8} alt="" />
                     </div>
                     <div className="image_wrapper">
@@ -242,9 +231,6 @@ const MainMint = ({ accounts, setAccounts }) => {
                     </div>
                     <div className="image_wrapper">
                       <img src={Snit9} alt="" />
-                    </div>
-                    <div className="image_wrapper">
-                      <img src={Mud9} alt="" />
                     </div>
                   </Marquee>
                 </div>
@@ -307,12 +293,7 @@ const MainMint = ({ accounts, setAccounts }) => {
               ) : (
                 <p>You must connect wallet to mint.</p>
               )}
-              <div className="footerimg">
-                <img draggable={false} src={bgfooter} alt="" />
-              </div>
-              <div className="tree">
-                <img draggable={false} src={bgboard} alt="" />
-              </div>
+             
             </Box>
           </Flex>
         </div>

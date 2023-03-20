@@ -1,11 +1,11 @@
 /* FONTS */
 
-@import url("https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
 .App {
   text-align: center;
-  font-family: "Caveat Brush";
+  font-family: "Staatliches";
 }
 
 * {
@@ -38,37 +38,14 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 40% 100%;
-  background-color: rgba(127, 222, 153, 255);
+  background-color: #a3a089;
 }
 
-.image-wrapper {
-  margin: 0px 20px;
-}
-
-.image-wrapper img {
-  width: 80%;
-}
 
 .supplyCounter {
   font-size: 40px;
 }
 
-.tree img {
-  position: absolute;
-  right: 0;
-  z-index: 0;
-  
-  bottom: 0;
-}
-.footerimg {
-  display: flex;
-  justify-content: center;
-}
-.footerimg img {
-  position: absolute;
-  margin-bottom: 20px;
-  bottom: 0;
-}
 .css-b2sdv4{
   align-items:initial !important;
 }
@@ -78,7 +55,7 @@ body {
 }
 @media screen and (max-width: 2000px) {
   .header-img img {
-    width: 400px;
+    width: 320px;
   }
   .tree img {
     width: 220px;
@@ -191,31 +168,23 @@ body {
     background-position: 50% 100%;
     max-width: 100%;
   }
-  .image-wrapper {
-    margin: 0px 10px;
-  }
-
-  .image-wrapper img {
-    width: 80%;
-  }
-
   .supplyCounter {
     font-size: 20px !important;
   }
   .connect-btn{
     position: absolute;
-    margin-top: 48rem !important;
+    margin-top: 75rem !important;
    
     display: flex;
     z-index: 99999999999999999999;
     align-content: center;
     justify-content: center;
      
-     width: 90%;
+     width: 92%;
 }
 .css-rauxjh{
   position: absolute;
-    margin-top: 59rem !important;
+    margin-top: 30rem !important;
    
     display: flex;
     z-index: 99999999999999999999;
@@ -226,6 +195,9 @@ body {
   .css-o8doay{
     font-size: 13px !important;
 
+  }
+  .social-buttons {
+    padding: 0 100px;
   }
 }
 @media screen and (max-width: 735px) {
@@ -248,33 +220,30 @@ body {
   margin-left:   0px !important; 
 }
 }
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 600px) {
   .header-img img {
    width: 235px;
   }
-  .tree img {
-   width: 100px;
-  }
-  .footerimg {
-  display: flex;
-  justify-content: left;
-  margin-left: 0px;
+.connect-btn {
+  width: 88%;
+  align-content: center;
+    justify-content: center;
 }
-  .footerimg img {
-        width: 400px;
-  }
 }
 @media screen and (max-width: 508px) {
 
 
   .connect-btn{ 
-    margin-top: 50rem !important;
+    margin-top: 70rem !important;
+    align-content: center;
+    justify-content: center;
+    width: 90%;
    
    
 }
 .css-rauxjh{
   position: absolute;
-    margin-top: 60.5rem !important;
+    margin-top: 30rem !important;
    
     display: flex;
     z-index: 99999999999999999999;
@@ -306,7 +275,10 @@ body {
 }
 @media screen and (max-width: 400px) {
   .connect-btn {
-    margin-top: 47rem !important;
+    margin-top: 69rem !important;
+    align-content: center;
+    justify-content: center;
+    width: 85%;
 }
   .header-img img {
    width: 235px;
