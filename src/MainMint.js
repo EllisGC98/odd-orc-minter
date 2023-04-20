@@ -98,7 +98,7 @@ const MainMint = ({ accounts, setAccounts }) => {
     };
 
     const handleIncrement = () => {
-        if (mintAmount >= 10) return;
+        if (mintAmount >= 4) return;
         setMintAmount(mintAmount + 1);
     };
 
@@ -164,25 +164,25 @@ const MainMint = ({ accounts, setAccounts }) => {
                       <img src={Rat4} alt="" />
                     </div>
                     <div className="image_wrapper">
-                      <img src={Snit2} alt="" />
-                    </div>
-                    <div className="image_wrapper">
-                      <img src={Mud2} alt="" />
-                    </div>
-                    <div className="image_wrapper">
-                      <img src={Rat1} alt="" />
-                    </div>
-                    <div className="image_wrapper">
                       <img src={Snit6} alt="" />
                     </div>
                     <div className="image_wrapper">
                       <img src={Mud3} alt="" />
                     </div>
                     <div className="image_wrapper">
-                      <img src={Rat10} alt="" />
+                      <img src={Rat1} alt="" />
                     </div>
                     <div className="image_wrapper">
                       <img src={Snit5} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Mud2} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Rat10} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Snit2} alt="" />
                     </div>
                     <div className="image_wrapper">
                       <img src={Mud4} alt="" />
@@ -221,16 +221,16 @@ const MainMint = ({ accounts, setAccounts }) => {
                       <img src={Mud8} alt="" />
                     </div>
                     <div className="image_wrapper">
-                      <img src={Rat9} alt="" />
-                    </div>
-                    <div className="image_wrapper">
-                      <img src={Snit1} alt="" />
-                    </div>
-                    <div className="image_wrapper">
                       <img src={Rat7} alt="" />
                     </div>
                     <div className="image_wrapper">
                       <img src={Snit9} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Rat9} alt="" />
+                    </div>
+                    <div className="image_wrapper">
+                      <img src={Snit1} alt="" />
                     </div>
                   </Marquee>
                 </div>
