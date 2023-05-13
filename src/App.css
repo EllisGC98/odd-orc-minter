@@ -30,13 +30,13 @@ body {
 
 
 .supplyCounter {
-  font-size: 40px;
+  font-size: 30px;
 }
 
 
 @media screen and (max-width: 2000px) {
   .header-img img {
-    width: 400px;
+    width: 300px;
   }
   
 }
@@ -142,20 +142,17 @@ body {
       width: 90%;
 }
   .css-o8doay{
-    font-size: 13px !important;
+    font-size: 10px !important;
 
   }
-  .social-buttons {
-    display: none;
-  }
+ 
 }
 @media screen and (max-width: 735px) {
   .header-img img {
    width: 200px;
   }
   .css-rauxjh { 
-  margin-right:   0px !important;
-  margin-left:   0px !important; 
+  display: none;
 }
 
 }
@@ -181,19 +178,7 @@ body {
    
 }
 .css-rauxjh{
-  position: absolute;
-    margin-top: 25rem !important;
-   
-    display: flex;
-    z-index: 99999999999999999999;
-    align-content: center;
-    justify-content: center;
-      width: 90%;
-}
-.css-rauxjh { 
-  margin-right:   0px !important;
-  margin-left:   0px !important;
-    font-size: 16px !important;
+  display: none;
 }
 }
 @media screen and (max-width: 495px) {
@@ -204,17 +189,13 @@ body {
 }
 @media screen and (max-width: 400px) {
   .connect-btn {
-    margin-top: 50rem !important;
+    margin-top: 60rem !important;
     align-content: center;
     justify-content: center;
     width: 85%;
 }
   .header-img img {
    width: 200px;
-  }
-  .css-rauxjh{
-    position: absolute;
-      margin-top: 25rem !important;
   }
   .css-6orinh {
     font-size: 20px !important;
