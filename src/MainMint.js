@@ -190,12 +190,12 @@ const MainMint = ({ accounts, setAccounts }) => {
                   </Marquee>
                 </div>
               </div>
-              {maxSupply && totalMinted && (<span className='supplyCounter'>{totalMinted}  / {' '} {5555} </span>)}
               <Text fontSize="25px">
                 MINT IS PAUSED{" "}
               </Text>
               {isConnected ? (
                 <div>
+                  {maxSupply && totalMinted && (<span className='supplyCounter'>{totalMinted}  / {' '} {5555} </span>)}
                   <div>
                     <Button
                       backgroundColor="#959982"
