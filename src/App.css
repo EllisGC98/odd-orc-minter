@@ -169,11 +169,11 @@ body {
   .header-img img {
    width: 200px;
   }
-
   .css-rauxjh { 
   margin-right:   0px !important;
   margin-left:   0px !important; 
 }
+
 }
 @media screen and (max-width: 600px) {
   .header-img img {
@@ -239,11 +239,12 @@ body {
 }
 @media screen and (max-width: 350px) {
    
-  .background {
-    background-size: cover;
-    background-position: 50% 100%;
-    max-width: 100%;
-  }
+  .connect-btn {
+    margin-top: 60rem !important;
+    align-content: center;
+    justify-content: center;
+    width: 85%;
+}
   .supplyCounter {
     font-size: 20px;
   }
