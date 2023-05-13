@@ -196,19 +196,9 @@ body {
 }
 @media screen and (max-width: 735px) {
   .header-img img {
-   width: 259px;
+   width: 200px;
   }
-  .tree img {
-   width: 145px;
-  }
-  .footerimg {
-  display: flex;
-  justify-content: left;
-  margin-left: 20px;
-}
-  .footerimg img {
-        width: 400px;
-  }
+
   .css-rauxjh { 
   margin-right:   0px !important;
   margin-left:   0px !important; 
@@ -253,7 +243,7 @@ body {
 }
 @media screen and (max-width: 495px) {
   .header-img img {
-   width: 235px;
+   width: 200px;
   }
  
 }
