@@ -123,7 +123,7 @@ body {
 }
 @media screen and (max-width: 767px) {
   .marquee{
-    height: 100px !important;
+    height: 130px !important;
   }
    .image_wrapper img {
     height: 126px !important;
@@ -198,7 +198,7 @@ body {
 }
 .css-rauxjh{
   position: absolute;
-    margin-top: 30rem !important;
+    margin-top: 25rem !important;
    
     display: flex;
     z-index: 99999999999999999999;
@@ -220,7 +220,7 @@ body {
 }
 @media screen and (max-width: 400px) {
   .connect-btn {
-    margin-top: 69rem !important;
+    margin-top: 50rem !important;
     align-content: center;
     justify-content: center;
     width: 85%;
@@ -239,12 +239,6 @@ body {
 }
 @media screen and (max-width: 350px) {
    
-  .connect-btn {
-    margin-top: 60rem !important;
-    align-content: center;
-    justify-content: center;
-    width: 85%;
-}
   .supplyCounter {
     font-size: 20px;
   }
