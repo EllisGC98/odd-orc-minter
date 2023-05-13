@@ -17,19 +17,17 @@ const shortenAddress = (address) => {
 const NavBar = ({ accounts, setAccounts }) => {
     const isConnected = Boolean(accounts[0]);
     
-
     async function connectAccounts() {
-        if (window.ethereum) {
-            const accounts = await window.ethereum.request({
-                method: "eth_requestAccounts",
-            });
-            const shortenedAddress = shortenAddress(accounts[0]);
-            setAccounts([shortenedAddress]);
-    } else {
-      toMetaMaskMint();
-    }
+      if (window.ethereum) {
+          const accounts = await window.ethereum.request({
+              method: "eth_requestAccounts",
+          });
+          const shortenedAddress = shortenAddress(accounts[0]);
+          setAccounts([shortenedAddress]);
+  } else {
+    toMetaMaskMint();
+  }
 }
-
 
     return (
         <Flex justify="space-between" align="center" padding="30px">

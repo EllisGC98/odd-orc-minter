@@ -24,7 +24,6 @@ import Rat3 from './/assets/R3.png';
 import Rat4 from './/assets/R4.png';
 import Rat5 from './/assets/R5.png';
 import Rat6 from './/assets/R6.png';
-import Rat7 from './/assets/R7.png';
 import Rat9 from './/assets/R9.png';
 import Rat10 from './/assets/R10.png';
 import bgtext from "./assets/NewLogo.png";
@@ -221,13 +220,10 @@ const MainMint = ({ accounts, setAccounts }) => {
                       <img src={Mud8} alt="" />
                     </div>
                     <div className="image_wrapper">
-                      <img src={Rat7} alt="" />
+                      <img src={Rat9} alt="" />
                     </div>
                     <div className="image_wrapper">
                       <img src={Snit9} alt="" />
-                    </div>
-                    <div className="image_wrapper">
-                      <img src={Rat9} alt="" />
                     </div>
                     <div className="image_wrapper">
                       <img src={Snit1} alt="" />
@@ -287,7 +283,7 @@ const MainMint = ({ accounts, setAccounts }) => {
                     fontSize="20px"
                     onClick={handleMint}
                   >
-                    Mint Soon
+                    Mint
                   </Button>
                 </div>
               ) : (

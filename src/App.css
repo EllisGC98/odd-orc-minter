@@ -261,17 +261,7 @@ body {
   .header-img img {
    width: 235px;
   }
-  .tree img {
-   width: 100px;
-  }
-  .footerimg {
-  display: flex;
-  justify-content: left;
-  margin-left: 0px;
-}
-  .footerimg img {
-        width: 300px;
-  }
+ 
 }
 @media screen and (max-width: 400px) {
   .connect-btn {
@@ -281,18 +271,11 @@ body {
     width: 85%;
 }
   .header-img img {
-   width: 235px;
+   width: 200px;
   }
-  .tree img {
-   width: 100px;
-  }
-  .footerimg {
-  display: flex;
-  justify-content: left;
-  margin-left: 0px;
-}
-  .footerimg img {
-        width: 250px;
+  .css-rauxjh{
+    position: absolute;
+      margin-top: 25rem !important;
   }
   .css-6orinh {
     font-size: 20px !important;
