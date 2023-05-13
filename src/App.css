@@ -33,11 +33,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  /* background-image: url(./assets/background.png); */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: 40% 100%;
+
   background-color: #a3a089;
 }
 
@@ -49,10 +45,7 @@ body {
 .css-b2sdv4{
   align-items:initial !important;
 }
-.css-q70xbr{margin-top: 0 !important;}
-.css-1ae1560{
-  margin-top: 0 !important;
-}
+
 @media screen and (max-width: 2000px) {
   .header-img img {
     width: 320px;
@@ -122,32 +115,10 @@ body {
   .header-img img {
    width: 279px;
   }
-  .tree img {
-   width: 165px;
-  }
-  .footerimg {
-  display: flex;
-  justify-content: left;
-  margin-left: 0px;
-}
-  .footerimg img {
-    width: 740px;
-  }
 }
 @media screen and (max-width: 890px) {
   .header-img img {
    width: 279px;
-  }
-  .tree img {
-   width: 165px;
-  }
-  .footerimg {
-  display: flex;
-  justify-content: left;
-  margin-left: 20px;
-}
-  .footerimg img {
-        width: 555px;
   }
 }
 @media screen and (max-width: 767px) {
