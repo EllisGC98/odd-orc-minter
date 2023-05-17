@@ -6,14 +6,11 @@ import Mud1 from './/assets/M1.png';
 import Mud2 from './/assets/M2.png';
 import Mud3 from './/assets/M3.png';
 import Mud4 from './/assets/M4.png';
-import Mud5 from './/assets/M5.png';
 import Snit2 from './/assets/S2.png';
 import Snit4 from './/assets/S4.png';
 import Snit5 from './/assets/S5.png';
 import Snit6 from './/assets/S6.png';
-import Snit8 from './/assets/S8.png';
 import Rat1 from './/assets/R1.png';
-import Rat2 from './/assets/R2.png';
 import Rat4 from './/assets/R4.png';
 import Rat5 from './/assets/R5.png';
 import Rat10 from './/assets/R10.png';
@@ -177,15 +174,6 @@ const MainMint = ({ accounts, setAccounts }) => {
                     </div>
                     <div className="image_wrapper">
                       <img src={Snit4} alt="" />
-                    </div>
-                    <div className="image_wrapper">
-                      <img src={Mud5} alt="" />
-                    </div>
-                    <div className="image_wrapper">
-                      <img src={Rat2} alt="" />
-                    </div>
-                    <div className="image_wrapper">
-                      <img src={Snit8} alt="" />
                     </div>
                   </Marquee>
                 </div>
