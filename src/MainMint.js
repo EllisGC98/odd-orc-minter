@@ -179,7 +179,7 @@ const MainMint = ({ accounts, setAccounts }) => {
                 </div>
               </div>
               <Text fontSize="25px">
-                MINTING SOON{" "}
+                0.015 ETH + GAS {" "}
               </Text>
               {isConnected ? (
                 <div>
