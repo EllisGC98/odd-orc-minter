@@ -67,7 +67,7 @@ const MainMint = ({ accounts, setAccounts }) => {
         if (window.ethereum) {
             try {
                 const response = await smartContract.mint(BigNumber.from(mintAmount), {
-                    value: ethers.utils.parseEther((0.015 * mintAmount).toString()),
+                    value: ethers.utils.parseEther((0.00 * mintAmount).toString()),
                 });
                 console.log('response: ', response);
                 alert("Mint Successful");
@@ -85,7 +85,7 @@ const MainMint = ({ accounts, setAccounts }) => {
     };
 
     const handleIncrement = () => {
-        if (mintAmount >= 4) return;
+        if (mintAmount >= 15) return;
         setMintAmount(mintAmount + 1);
     };
 
@@ -179,7 +179,7 @@ const MainMint = ({ accounts, setAccounts }) => {
                 </div>
               </div>
               <Text fontSize="25px">
-                0.015 ETH + GAS {" "}
+                FREE MINT. FUCK SHITCOINS {" "}
               </Text>
               {isConnected ? (
                 <div>
