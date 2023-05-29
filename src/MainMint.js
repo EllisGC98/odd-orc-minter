@@ -183,7 +183,7 @@ const MainMint = ({ accounts, setAccounts }) => {
               </Text>
               {isConnected ? (
                 <div>
-                  {maxSupply && totalMinted && (<span className='supplyCounter'>{totalMinted}  / {' '} {5555} </span>)}
+                  {maxSupply && totalMinted && (<span className='supplyCounter'>{totalMinted}  / {' '} {7777} </span>)}
                   <div>
                     <Button
                       backgroundColor="#959982"
