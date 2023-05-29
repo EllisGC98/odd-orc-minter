@@ -230,7 +230,7 @@ const MainMint = ({ accounts, setAccounts }) => {
                     fontSize="20px"
                     onClick={handleMint}
                   >
-                    Mint
+                    SOLD OUT
                   </Button>
                 </div>
               ) : (
