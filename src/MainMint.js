@@ -179,7 +179,7 @@ const MainMint = ({ accounts, setAccounts }) => {
                 </div>
               </div>
               <Text fontSize="25px">
-                FREE MINT. FUCK SHITCOINS {" "}
+                SOLD OUT{" "}
               </Text>
               {isConnected ? (
                 <div>
